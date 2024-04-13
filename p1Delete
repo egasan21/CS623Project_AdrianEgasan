@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,10 +12,8 @@ public class CS623Project {
 
 	public static void main(String args[]) throws SQLException, IOException, 
 	ClassNotFoundException {
-
-		// Load the PostgreSQL driver 
-		// Connect to the default database with credentials
-		// You will have to change your credentials
+ 
+		// Connects to the database with login credentials
 		Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/CS623HW5", "postgres", "Pa$$w0rd");
 
 		// For atomicity
@@ -29,8 +26,8 @@ public class CS623Project {
 		try {
 			// Create statement object
 			stmt1 = conn.createStatement();
-			// Either the 2 following inserts are executed, or none of them are. This is
-			// atomicity
+			// If we had two execute statements it would implement atomicity as
+			// both statements would need to execute or none of them will
 			stmt1.executeUpdate("delete from product where prodid = 'p1'");
 		} catch (SQLException e) {
 			System.out.println("An exception was thrown");
