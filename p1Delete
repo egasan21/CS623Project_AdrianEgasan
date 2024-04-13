@@ -18,7 +18,7 @@ public class PostgreDemoACID {
 		// Load the PostgreSQL driver
 		// Connect to the default database with credentials
 		// You will have to change your credentials
-		Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/testdb", "postgres", "postgres");
+		Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/CS623HW5", "postgres", "Pa$$w0rd");
 
 		// For atomicity
 		conn.setAutoCommit(false);
