@@ -5,17 +5,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
- /**
- * @author cscharff Sample of JDBC for PostgreSQL 
- * ACID is implemented
+/**
+ * @author Adrian Egasan using the cscharff Sample of JDBC for PostgreSQL 
  */
 
-public class PostgreDemoACID {
+public class CS623Project {
 
 	public static void main(String args[]) throws SQLException, IOException, 
 	ClassNotFoundException {
 
-		// Load the PostgreSQL driver
+		// Load the PostgreSQL driver 
 		// Connect to the default database with credentials
 		// You will have to change your credentials
 		Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/CS623HW5", "postgres", "Pa$$w0rd");
@@ -30,13 +29,9 @@ public class PostgreDemoACID {
 		try {
 			// Create statement object
 			stmt1 = conn.createStatement();
-			
-			// Maybe a table student exists, maybe not
-			// create table student(id integer, name varchar(10), primary key(id))
 			// Either the 2 following inserts are executed, or none of them are. This is
 			// atomicity
-			stmt1.executeUpdate("insert into student values (7, 'stud1')");
-			stmt1.executeUpdate("insert into student values (2, 'stud2')");
+			stmt1.executeUpdate("delete from product where prodid = 'p1'");
 		} catch (SQLException e) {
 			System.out.println("An exception was thrown");
 			e.printStackTrace();
